@@ -7,14 +7,14 @@ use Cocur\Slugify\Slugify;
 
 
 /**
- * @ORM\Entity(repositoryClass=PropertyRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
  */
 class Property
 {
 
     const HEAT = [
-        0 => "electric",
-        1 => "gaz"
+        0 => "Electrique",
+        1 => "Gaz"
     ];
 
     /**

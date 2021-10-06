@@ -28,7 +28,8 @@ p,
 a,
 button,
 input,
-select {
+select,
+textarea {
   line-height: 1.25rem;
   font-weight: 500;
   font-size: 1rem;
@@ -142,8 +143,14 @@ label {
 }
 
 input {
-  background: #121212;
+  border: 2px solid #121212;
   padding: 0.5rem 2rem;
+}
+
+textarea{
+  border: 2px solid #121212;
+  padding: 0.5rem 2rem;
+  resize: none;
 }
 
 .base-btn {
@@ -155,11 +162,17 @@ input {
   color: #cccccc;
 }
 select {
-  border: none;
-  background: #313131;
+  border: 2px solid #121212;
   height: 3rem;
   padding: 0 2rem;
-  color: #cccccc;
+}
+
+
+button {
+  background: #313131;
+  color: #c4c4c4;
+  width: 8rem;
+  padding: 0.5rem 0;
 }
 
 button:hover {

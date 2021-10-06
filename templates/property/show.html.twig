@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %} {% block body %}
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-4">
+        <h2>BASE</h2>
+        <h1>{{ property.title }}</h1>
+        <h2>{{ property.rooms }} pièces , {{ property.surface }} m²</h2>
+        <div class="text-primary">{{ property.formattedPrice }} €</div>
+        <a href="" class="btn-primary">Contacter</a>
+      </div>
+    </div>
+    <p>
+      {{ property.description | nl2br }}
+    </p>
+
+    <div class="row">
+      <div class="col-md-8">
+        <h2>INFOS</h2>
+        <table class="table table-striped">
+          <tr>
+            <td>Surface</td>
+            <td>{{ property.surface }}</td>
+          </tr>
+          <tr>
+            <td>Pieces</td>
+            <td>{{ property.rooms }}</td>
+          </tr>
+          <tr>
+            <td>Chambre</td>
+            <td>{{ property.bedrooms }}</td>
+          </tr>
+          <tr>
+            <td>Etage</td>
+            <td>{{ property.floor }}</td>
+          </tr>
+          <tr>
+            <td>Chauffage</td>
+            <td>{{ property.heatType }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

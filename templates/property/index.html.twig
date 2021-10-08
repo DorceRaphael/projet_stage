@@ -1,5 +1,14 @@
-{% extends "base.html.twig" %} {% block body %}
+{% extends "base.html.twig" %}
+{% block body %}
 <div class="container text-center">
   <h1>BIENS</h1>
+    <div class="row grid">
+        {% for property in properties %}
+          {{ include("property/_property.html.twig") }}
+        {% endfor %}
+    </div>
+    <div class="pagination">
+      {{ knp_pagination_render(properties) }}
+    </div>
 </div>
 {% endblock %}

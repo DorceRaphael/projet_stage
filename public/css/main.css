@@ -253,3 +253,16 @@ article div {
 .btn-container button {
   margin-right: 1rem;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+@media screen and (min-width: 768px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -18,7 +18,7 @@ body %}
       <tr>
         <td>{{ property.title }}</td>
         <td>
-              <a href="{{ path("admin.property.edit", {id: property.id}) }}">Editer</a>
+              <a href="{{ path("admin.property.edit", {id: property.id}) }}">Modifier</a>
               <form method="post" action="{{ path("admin.property.delete", {id: property.id}) }}" onsubmit="return confirm('Êtes vous vraiment sur ?')">
                 <input type="hidden" name="_method" value="DELETE" />
                 <input type="hidden" name="_token" value="{{ csrf_token("delete" ~ property.id) }}" />

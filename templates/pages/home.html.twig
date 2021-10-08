@@ -1,22 +1,11 @@
-{% extends "base.html.twig" %}
-{% block title %}{% endblock %}
-{% block body %}
+{% extends "base.html.twig" %} {% block title %}{% endblock %} {% block body %}
 <div class="container text-center">
-    <div class="row flex">
-        {% for property in properties %}
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-title">
-                        <a href="{{
-                            path("property.show", { id: property.id, slug: property.slug })
-                          }}">{{ property.title }}</a>
-                    </div>
-                    <p class="card-text">{{ property.city }}</p>
-                    <p style="font-size: 2rem; font-weight: bold;">{{ property.getFormattedPrice }} €</p>
-                </div>
-        </div>
-        {% endfor %}
-    </div>
+  <h1>HOME</h1>
+  <div class="row grid">
+    {% for property in properties %}
+      {{ include("property/_property.html.twig") }}
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

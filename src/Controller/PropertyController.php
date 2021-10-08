@@ -8,6 +8,8 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PropertyController extends AbstractController
 {
@@ -25,26 +27,12 @@ class PropertyController extends AbstractController
      * @Route("/biens", name="property.index")
      * return Response
      */
-    public function index(): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        // CREER DES DONNEES
-        // $property = new Property();
-        // $property->setTitle("Bien 1")
-        //     ->setPrice(20000)
-        //     ->setRooms(4)
-        //     ->setBedrooms(3)
-        //     ->setDescription("Description 1")
-        //     ->setSurface(60)
-        //     ->setFloor(4)
-        //     ->setHeat(1)
-        //     ->setCity("Ville 1")
-        //     ->setAdress("Adresse 1")
-        //     ->setPostalCode(34000);
-        // $em = $this->getDoctrine()->getManager();
-        // $em->persist($property);
-        // $em->flush();
+        $properties = $paginator->paginate($this->repository->findAllVisibleQuery(), $request->query->getInt("page", 1), 12);
         return $this->render("property/index.html.twig", [
-            "current_menu" => "properties"
+            "current_menu" => "properties",
+            "properties" => $properties
         ]);
     }
 

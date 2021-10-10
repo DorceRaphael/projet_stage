@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,24 +14,27 @@ class PropertyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', null, ["label" => "Titre"])
+            ->add('title')
             ->add('description')
             ->add('surface')
-            ->add('rooms', null, ["label" => "Salles"])
-            ->add('price', null, ["label" => "Prix"])
-            ->add('adress', null, ["label" => "Adresse"])
-            ->add('city', null, ["label" => "Ville"])
-            ->add('postal_code', null, ["label" => "Code postal"])
-            ->add('sold', null, ["label" => "Vendu"])
-            ->add('bedrooms', null, ["label" => "Chambres à coucher"])
-            ->add('floor', null, ["label" => "Etage"])
-            ->add('heat', ChoiceType::class, ["choices" => $this->getChoices()]);
+            ->add('rooms')
+            ->add('price')
+            ->add('adress')
+            ->add('city')
+            ->add('postal_code')
+            ->add('sold')
+            ->add('bedrooms')
+            ->add('floor')
+            ->add('heat', ChoiceType::class, ["choices" => $this->getChoices()])
+            ->add('image', null, ["required" => false])
+            ->add('imageFile', FileType::class, ["required" => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Property::class,
+            "translation_domain" => "forms"
         ]);
     }
 

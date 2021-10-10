@@ -1,7 +1,15 @@
 {% extends "base.html.twig" %}
 {% block body %}
+<section class="search-form-section">
+  <div class="container search-form">
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <button>Rechercher</button>
+    {{ form_end(form) }}
+</div>
+</section>
 <div class="container text-center">
-  <h1>BIENS</h1>
+  <h1>TOUS LES BIENS</h1>
     <div class="row grid">
         {% for property in properties %}
           {{ include("property/_property.html.twig") }}

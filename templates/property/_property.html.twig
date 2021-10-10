@@ -5,5 +5,10 @@
         </div>
         <p class="card-text">{{ property.city }}</p>
         <p style="font-size: 2rem; font-weight: bold;">{{ property.getFormattedPrice }} €</p>
+        {% if property.filename == null %}
+        <img class="property-img" src="https://previews.123rf.com/images/iimages/iimages1205/iimages120500876/13732734-illustration-a-simple-house-front-view.jpg" alt="">
+        {% else %}
+        <img class="property-img" src="{{ vich_uploader_asset(property, "imageFile") }}" alt="">
+        {% endif %}
     </div>
 </div>
